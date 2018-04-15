@@ -48,7 +48,7 @@ class Car(models.Model):
     fuel_costs = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Витрати пального")
     price = models.BigIntegerField(default=0, verbose_name="Ціна")
     mileage = models.BigIntegerField(default=0, verbose_name="Пробіг")
-    volume = models.DecimalField(max_digits=8, decimal_places=2, verbose_name="Об'єи")
+    volume = models.DecimalField(max_digits=8, decimal_places=2, verbose_name="Об'єм")
     drive_type = models.CharField(max_length=20, choices=DRIVE_TYPES, default="full", verbose_name="Тип приводу")
     fuel = models.CharField(max_length=20, choices=FUEL_TYPES, default="petrol", verbose_name="Паливо")
     transmission = models.CharField(max_length=20, choices=TRANSMISSION_TYPES, default="manual",

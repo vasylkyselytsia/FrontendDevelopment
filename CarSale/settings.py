@@ -120,10 +120,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'CaseSale/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'CarSale/static')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'CaseSale/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'CarSale/media')
 
 
 REST_FRAMEWORK = {
@@ -133,5 +133,6 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.TokenAuthentication'
-    )
+    ),
+    'COERCE_DECIMAL_TO_STRING': False
 }
