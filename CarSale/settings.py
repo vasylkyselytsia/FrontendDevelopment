@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+import dj_database_url
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,9 +25,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'd+m031$gqj5pypqs)%m6prb6o4plkkn+2nurs6v8e1q*)hjts5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+ALLOWED_HOSTS = ['front-app-end.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -38,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "rest_framework",
     "rest_framework.authtoken",
+    'whitenoise.runserver_nostatic',
     'api.apps.ApiConfig',
 ]
 
@@ -77,10 +82,22 @@ WSGI_APPLICATION = 'CarSale.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dfiq10fj0r6717',
+        'USER': 'syoctssycmyaey',
+        'PASSWORD': 'aaaffcaee0503870b897e2bc5f800d5ace8250c5b1e85c40d9cbb928fe22fbe1',
+        'HOST': 'ec2-54-217-217-142.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
+        "SSL": "OFF"
+    },
+    'dev': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'carDB.sqlite3'),
     }
 }
+
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation

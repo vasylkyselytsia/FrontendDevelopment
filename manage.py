@@ -2,8 +2,11 @@
 import os
 import sys
 
+from utils import Util
+
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "CarSale.settings")
+    Util.run()
     try:
         from django.core.management import execute_from_command_line
     except ImportError:

@@ -1,0 +1,1 @@
+web: ./manage.py collectstatic --noinput; gunicorn CarSale.wsgi  --preload --workers 1
