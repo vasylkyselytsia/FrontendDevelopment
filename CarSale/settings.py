@@ -147,8 +147,8 @@ STATICFILES_DIRS = [
 
 UPLOAD_PATH = STATICFILES_DIRS[0] if DEBUG else STATIC_ROOT
 
-MEDIA_URL = '/static/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'CarSale/static')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'CarSale/media')
 
 
 REST_FRAMEWORK = {
