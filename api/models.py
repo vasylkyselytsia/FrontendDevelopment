@@ -1,5 +1,10 @@
 import uuid
+
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
 from django.db import models
+
+fs = FileSystemStorage(location=settings.UPLOAD_PATH)
 
 DRIVE_TYPES = (
     ("full", "Повний"),
@@ -59,4 +64,5 @@ class Car(models.Model):
     airbag = models.BooleanField(default=True, verbose_name="Подушка безпеки")
     alarms = models.BooleanField(default=False, verbose_name="Сигналізація")
     central_lock = models.BooleanField(default=False, verbose_name="Центральний замок")
-    image = models.ImageField(default="", upload_to="car_images", verbose_name="Зображення")
+    image = models.ImageField(default="", upload_to="car_images", verbose_name="Зображення",
+                              storage=fs)
