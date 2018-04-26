@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+
 from api.models import Car
 from api.serializers import CarSerializer, ShortCarInfoSerializer
 
@@ -7,7 +8,6 @@ class CarViewSet(viewsets.ModelViewSet):
     queryset = Car.objects.all()
     serializer_class = CarSerializer
     info_serializer_class = ShortCarInfoSerializer
-    permission_classes = ()
 
     def get_serializer_class(self):
         if all((self.request.method == "GET",
