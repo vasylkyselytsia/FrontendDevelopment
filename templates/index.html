@@ -1,10 +1,21 @@
+{% load staticfiles %}
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="en">
+<html
+        lang="en"
+        ng-app="app"
+>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="icon" href="{% static "images/icon.png" %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'base/bundle.css' %}">
 </head>
 <body>
-
+<app></app>
+<script src="{% static 'base/vendor.bundle.js' %}"></script>
+<script src="{% static 'base/bundle.js' %}"></script>
 </body>
 </html>
