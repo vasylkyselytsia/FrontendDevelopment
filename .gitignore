@@ -163,4 +163,5 @@ venv.bak/
 # mypy
 .mypy_cache/
 CarSale/staticfiles
-node_modules
+CarSale/static/base/
+node_modules/
