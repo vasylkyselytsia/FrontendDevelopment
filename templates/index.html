@@ -11,14 +11,21 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'styles/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/css/bootstrap-theme.min.css' %}">
-    <link rel="stylesheet" href="{% static 'base/css/style_bundle.css' %}">
     <link rel="stylesheet" href="{% static 'base/css/style_vendor.css' %}">
+    <link rel="stylesheet" href="{% static 'base/css/style_bundle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ui-bootstrap-csp.css' %}">
+    <base href="/">
 </head>
 <body>
-<app></app>
-<script src="{% static 'base/js/vendor.css' %}"></script>
-<script src="{% static 'base/js/bundle.css' %}"></script>
+<div ui-view="car"></div>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/moment.min.js' %}"></script>
+<script src="{% static 'js/angular.min.js' %}"></script>
+<script src="{% static 'js/angular-animate.min.js' %}"></script>
+<script src="{% static 'js/angular-touch.min.js' %}"></script>
+<script src="{% static 'js/angular-ui-router.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'base/js/vendor.js' %}"></script>
+<script src="{% static 'base/js/bundle.js' %}"></script>
 </body>
 </html>

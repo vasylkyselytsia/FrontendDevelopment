@@ -13,7 +13,7 @@ module.exports = function Compile(env) {
         entry: {
             main: ["babel-polyfill", "./frontend/app.js", "./frontend/index.scss"],
             vendor: ['jquery', 'angular', "bootstrap/dist/js/bootstrap.min.js", "bootstrap/less/bootstrap.less",
-                "angular-ui-bootstrap", "moment"]
+                     "angular-ui-bootstrap", "moment"]
         },
         output: {
             path: path.resolve("CarSale/static/base/"),
@@ -21,10 +21,11 @@ module.exports = function Compile(env) {
             filename: "js/bundle.[hash].js"
         },
         externals: {
-            "angular": "angular",
-            "jquery": "jQuery",
+            jquery: 'jQuery',
+            angular: "angular",
+            moment: "moment",
             "uibootstrap": "'ui.bootstrap'",
-            "moment": "moment"
+            "ngRoute": "angular-route"
         },
         resolve: {
             alias: {}
@@ -59,12 +60,22 @@ module.exports = function Compile(env) {
                 {
                     test: /\.json$/,
                     loader: "json-loader"
+                },
+                {
+                    test: /\.html$/,
+                    loader: "raw-loader"
                 }
             ]
         },
         plugins: [
+            new webpack.ProvidePlugin({
+                $: 'jquery',
+                "jQuery": "jquery",
+                "window.jQuery": "jquery",
+                "window.angular": "angular",
+                "moment": "moment"
+            }),
             new webpack.optimize.ModuleConcatenationPlugin(),
-            new webpack.ProvidePlugin({$: 'jquery', "jQuery": "jquery", "window.jQuery": "jquery"}),
             new webpack.optimize.OccurrenceOrderPlugin(true),
             extractLESS,
             extractSASS,
@@ -122,12 +133,12 @@ module.exports = function Compile(env) {
                         "vendor"
                     );
                     replaceInCssFile(path.resolve("./templates/", "index.html"),
-                        "bundle.css",
-                        "bundle." + hash + ".css"
+                        "style_bundle.css",
+                        "style_bundle." + hash + ".css"
                     );
                     replaceInCssFile(path.resolve("./templates/", "index.html"),
-                        "vendor.css",
-                        "vendor." + hash + ".css",
+                        "style_vendor.css",
+                        "style_vendor." + hash + ".css",
                         "style_vendor"
                     );
 
