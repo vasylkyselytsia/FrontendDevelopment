@@ -1,3 +1,6 @@
+import CarDetailController from "../car-module/controllers/car-info.ctrl";
+import CarListController from "../car-module/controllers/car-list.ctrl";
+
 coreRoutes.$inject = ["$stateProvider", "$urlRouterProvider", "$controllerProvider"];
 
 export default coreRoutes;
@@ -17,7 +20,8 @@ function coreRoutes($stateProvider, $urlRouterProvider, $controllerProvider) {
             url: "cars",
             views: {
                 "car@": {
-                    controller: "CarListController as car_list",
+                    controller: CarListController,
+                    controllerAs: 'list',
                     templateProvider: ["$q", $q => {
                         return $q(resolve => {
                             require.ensure([], () => {
@@ -42,10 +46,11 @@ function coreRoutes($stateProvider, $urlRouterProvider, $controllerProvider) {
         })
         .state("car-detail", {
             parent: "car-list",
-            url: "/:hash",
+            url: "/:carId",
             views: {
                 "car@": {
-                    controller: "CarDetailController as car_info",
+                    controller: CarDetailController,
+                    controllerAs: 'info',
                     templateProvider: ["$q", $q => {
                         return $q(resolve => {
                             require.ensure([], () => {

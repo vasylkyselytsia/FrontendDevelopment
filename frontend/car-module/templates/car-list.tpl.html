@@ -1,2 +1,3 @@
-<div>Car List</div>
-<a ui-sref="car-detail({hash: '123'})"> DETAIL </a>
+<div class="col-xs-12" ng-if="list.showContent">
+    <car-description ng-repeat="carInfo in list.carsList" car="carInfo"></car-description>
+</div>

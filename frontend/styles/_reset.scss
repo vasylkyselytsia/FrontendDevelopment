@@ -2,3 +2,13 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  div.main-content {
+    min-height: calc(100% - 210px);
+
+  }
+  div.footer, div.header {
+    height: 100px;
+  }
+}

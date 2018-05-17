@@ -3,11 +3,12 @@ import uiRouter from "@uirouter/angularjs";
 import authInterceptor from "./core-module/authInterceptor";
 import routerConfig from "./core-module/core.router";
 import runConfig from "./core-module/run.block";
+import carModule from "./car-module/car.module";
 
 const app = "app";
 
 angular
-    .module(app, [uiRouter])
+    .module(app, [uiRouter, carModule])
 
     .factory('authInterceptor', authInterceptor)
 
